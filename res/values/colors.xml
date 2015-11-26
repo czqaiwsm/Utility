@@ -5,4 +5,7 @@
     <color name="list_item_click_color">#d6d6d6</color>
     <color name="head_title_bg">#1BBC9B</color>
     <color name="head_right_textview_color">#ffffff</color>
+    <color name="c_77000000">#77000000</color>
+    <color name="c_646464">#646464</color>
+
 </resources>

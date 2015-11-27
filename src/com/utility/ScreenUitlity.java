@@ -27,6 +27,7 @@ public class ScreenUitlity {
     }
 
     public static int dip2px(Context context, float dpValue) {
+//        dp = px / (ppi / 160)
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }

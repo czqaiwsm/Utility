@@ -2,10 +2,12 @@ package com;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 import com.utility.AlertDialogUtils;
 import com.utility.R;
+import com.utility.SDCardUtility;
 import com.utility.waiterLayer.UILoadingDialog;
 import com.utility.waiterLayer.WaitLayer;
 import com.utility.waiterLayer.WaitUtility;
@@ -22,7 +24,7 @@ public class MyActivity extends Activity {
         findViewById(R.id.btn1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialogUtils.displayAlert(MyActivity.this, "alertHeader", "helloMessage", "cancel");
+                AlertDialogUtils.displayAlert(MyActivity.this, "alertHeader", SDCardUtility.getSDPath(MyActivity.this), "cancel");
             }
         });
         findViewById(R.id.btn2).setOnClickListener(new View.OnClickListener() {
@@ -44,7 +46,7 @@ public class MyActivity extends Activity {
         findViewById(R.id.btn3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialogUtils.displayMyAlertChoice(MyActivity.this, "title", "message", "Positive",new View.OnClickListener() {
+                AlertDialogUtils.displayMyAlertChoice(MyActivity.this, "title", "message", "Positive", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(MyActivity.this, "confirm", Toast.LENGTH_SHORT).show();
@@ -52,6 +54,8 @@ public class MyActivity extends Activity {
                 });
             }
         });
+
+
 
         findViewById(R.id.btn4).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,8 +67,11 @@ public class MyActivity extends Activity {
         findViewById(R.id.btn5).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               WaitUtility.showWaitLayer(MyActivity.this);
+                WaitUtility.showWaitLayer(MyActivity.this);
             }
         });
+        Log.e(">>>>>", "density      :" + getResources().getDisplayMetrics().density);
+        Log.e(">>>>>", "densityDpi   :" + getResources().getDisplayMetrics().densityDpi);
+        Log.e(">>>>>", "scaledDensity:" + getResources().getDisplayMetrics().scaledDensity);
     }
 }
